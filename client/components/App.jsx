@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { getWidgets } from '../apiClient'
  
 
 
@@ -7,6 +8,8 @@ function App() {
 
   useEffect(() => {
     console.log('using the effect')
+    getWidgets()
+    .then((seeWidgets)=> console.log(seeWidgets))
   }, [])
   
   return (
