@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getWidgets } from '../apiClient'
+import AddWidget from './AddWidget'
  
 
 
@@ -13,6 +14,10 @@ function App() {
       console.log(widgetsArr)
       setWidgets(widgetsArr)})
   }, [])
+
+
+  
+
   
   return (
     <div>
@@ -20,6 +25,7 @@ function App() {
       <ul>
         {widgets.map(widget => <li key={widget.id}>{widget.name}</li>)}
       </ul>
+      <AddWidget />
     </div>
   )
 }

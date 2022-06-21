@@ -1,4 +1,4 @@
-import { text } from 'express'
+// import { text } from 'express'
 import React, { useState } from 'react'
 
 import { addWidget } from '../apiClient'
@@ -10,33 +10,37 @@ function AddWidget (props) {
     evt.preventDefault()
 
     const newWidget = {
-      widgetName,
+      name,
       // price,
-      mfg,
+      // mfg,
       // inStock
     }
+    console.log(newWidget)
 
     addWidget(newWidget)
     .then(() => {
-      props.refreshWidget()
+      // props.refreshWidget()
     })
   }
 
   return (
     <>
-      <p>Name: {widgetName}</p>
+      <p>Name: {widget}</p>
       <form onSubmit={handleSubmit}>
         <label htmlFor='name'>Name:</label>
-        <input id='name' type='text' onChange={(evt) => setWidget(evt.target.value)} />
+        <input id='name' type='text' onChange={(evt) =>setWidget(evt.target.value)} />
 
-        {/* <label htmlFor='price'>Price:</label>
-        <input id='price' type={number} onChange={(evt) => setWidget(evt.target.value)} /> */}
+        <label htmlFor='price'>Price:</label>
+        <input id='price' type='number' onChange={(evt) =>setWidget(evt.target.value)} />
 
         <label htmlFor='mfg'>Mfg:</label>
-        <input id='mfg' type='text' onChange={(evt) => setWidget(evt.target.value)} />
+        <input id='mfg' type='text' onChange={(evt) =>setWidget(evt.target.value)} />
 
-        {/* <label htmlFor='inStock'>In Stock:</label>
-        <input id='inStock' type={number} onChange={(evt) => setWidget(evt.target.value)} /> */}
+        <label htmlFor='inStock'>In Stock:</label>
+        <input id='inStock' type='number' onChange={(evt) =>setWidget(evt.target.value)} />
+
+
+        <input type="submit" value="Submit"/>
 
       </form>
     </>
