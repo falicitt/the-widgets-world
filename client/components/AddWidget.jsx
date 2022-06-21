@@ -1,43 +1,52 @@
-// import { text } from 'express'
 import React, { useState } from 'react'
 
-import { addWidget } from '../apiClient'
+import { addWidget, getWidgets } from '../apiClient'
+// import Widgsets from './Widgets'
 
-function AddWidget (props) {
-  const [widget, setWidget] = useState({})
+function AddWidget(props) {
+  
+  const [widget, setWidget] = useState({
+    name: '',
+    price: 0,
+    mfg: '',
+    inStock:0
+  })
 
   const handleSubmit = (evt) => {
-    evt.preventDefault()
-
-    const newWidget = {
-      name,
-      // price,
-      // mfg,
-      // inStock
-    }
-    console.log(newWidget)
-
-    addWidget(newWidget)
+    evt.preventDefault() 
+    
+    addWidget(widget)
     .then(() => {
-      // props.refreshWidget()
+      props.refreshWidgets()
+    })
+    .then(() => {
+      getWidgets()
+    })
+    .catch(err=> console.log(err))
+  }
+
+  const handleChange = (evt) => {
+    setWidget({
+      ...widget,
+      [evt.target.name]: evt.target.value
     })
   }
 
   return (
     <>
-      <p>Name: {widget}</p>
+      
       <form onSubmit={handleSubmit}>
         <label htmlFor='name'>Name:</label>
-        <input id='name' type='text' onChange={(evt) =>setWidget(evt.target.value)} />
+        <input id='name' name='name' type='text' onChange={handleChange} />
 
         <label htmlFor='price'>Price:</label>
-        <input id='price' type='number' onChange={(evt) =>setWidget(evt.target.value)} />
+        <input id='price' name='price' type='number' onChange={handleChange} />
 
         <label htmlFor='mfg'>Mfg:</label>
-        <input id='mfg' type='text' onChange={(evt) =>setWidget(evt.target.value)} />
+        <input id='mfg' name='mfg' type='text' onChange={handleChange} />
 
-        <label htmlFor='inStock'>In Stock:</label>
-        <input id='inStock' type='number' onChange={(evt) =>setWidget(evt.target.value)} />
+        <label htmlFor='inStock'>Number In Stock:</label>
+        <input id='inStock' name='inStock' type='number' onChange={handleChange} />
 
 
         <input type="submit" value="Submit"/>
