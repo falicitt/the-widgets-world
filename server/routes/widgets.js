@@ -13,4 +13,14 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/', (req,res) =>{
+  const newWidget = req.body
+  db.addWidget(newWidget)
+  .then((idArr) => {
+    newWidget.id = idArr[0]
+    res.json(newWidget)
+  })
+  .catch(err => res.status(500).json({err:err.message}))
+})
+
 module.exports = router

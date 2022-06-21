@@ -9,3 +9,9 @@ export function getWidgets() {
   })
 }
 
+export function addWidget(widget){
+  return request.post('/api/v1/widgets')
+  .send(widget)
+  .then(res => res.body)
+}
+
