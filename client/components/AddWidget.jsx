@@ -12,6 +12,13 @@ function AddWidget(props) {
     inStock:0
   })
 
+  const handleChange = (evt) => {
+    setWidget({
+      ...widget,
+      [evt.target.name]: evt.target.value
+    })
+  }
+
   const handleSubmit = (evt) => {
     evt.preventDefault() 
     
@@ -25,12 +32,7 @@ function AddWidget(props) {
     .catch(err=> console.log(err))
   }
 
-  const handleChange = (evt) => {
-    setWidget({
-      ...widget,
-      [evt.target.name]: evt.target.value
-    })
-  }
+  
 
   return (
     <>

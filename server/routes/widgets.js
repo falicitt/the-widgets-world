@@ -23,4 +23,29 @@ router.post('/', (req,res) =>{
   .catch(err => res.status(500).json({err:err.message}))
 })
 
+router.delete('/:name', (req, res) => {
+  const name = req.params.name
+
+  db.deleteWidget(name)
+  .then((number)=> {
+    console.log('widget deleted', number)
+    res.json('widget has been deleted')})
+  .catch(err => res.status(500).json({err:err.message}))
+
+})
+
+router.patch('/:id', (req, res) => {
+  const widgetDetails = req.body
+  const id = req.params.id
+
+  db.updateWidget(id, widgetDetails)
+  .then((numUpdated) => {
+    console.log('number updated', numUpdated)
+    res.json(widgetDetails)
+  })
+  .catch(err => res.status(500).json({err:err.message}))
+
+})
+
+
 module.exports = router

@@ -14,3 +14,17 @@ export function addWidget(widget) {
     .send(widget)
     .then((res) => res.body)
 }
+
+export function deleteWidget(name) {
+  return request
+  .delete(`${widgetUrl}${name}`)
+  .send(name)
+  .then((res)=>console.log('api delete', res.body))
+}
+
+export function updateWidget(id, updatedWidget) {
+  return request
+  .patch(`${widgetUrl}${id}`)
+  .send(updatedWidget)
+  .then((res) => res.body)
+}
