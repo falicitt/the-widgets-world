@@ -1,9 +1,18 @@
 import React from "react"
 // import { Link } from 'react-dom'
 
-import {deleteWidget} from '../apiClient'
+import { deleteWidget } from '../apiClient'
 
 function Widgets(props) {
+
+  const handleClick = (evt) => {
+    evt.preventDefault()
+
+    deleteWidget(widgetId)
+    .then(()=> props.refreshWidgets())
+    // .then(()=> getWidgets())
+    .catch(err=> console.log(err))
+  }
 
   return (
     <>
@@ -15,7 +24,8 @@ function Widgets(props) {
         <p>price: ${widget.price}</p>
         <p>mfg: {widget.mfg}</p>
         <p>number in stock: {widget.inStock}</p>
-        <button onClick={() => deleteWidget(widget.id)}>Delete Widget</button>
+        {/* <button onClick={() => deleteWidget(widget.id)}>Delete Widget</button> */}
+        <button onClick={() => handleClick(widget.id)}>Delete Widget</button>
         </li>)}
        </ol>
     </>

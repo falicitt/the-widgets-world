@@ -17,9 +17,9 @@ function addWidget(newWidget, db = connection){
   return db('widgets').insert(newWidget)
 }
 
-function deleteWidget(name, db = connection) {
+function deleteWidget(id, db = connection) {
   return db('widgets')
-  .where('name', name)
+  .where('id', id)
   .delete()
 }
 

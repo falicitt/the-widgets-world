@@ -42,10 +42,10 @@ function App() {
       <button onClick={handleClick}>{showForm ? 'hide add' : 'Add Widget' }</button>
       {showForm && (<AddWidget refreshWidgets={handleSubmit} />)}
       <button onClick={handleDelete}>{showDeleteForm ? 'hide delete' : 'Delete Widget' }</button>
-      {showDeleteForm && (<DeleteWidget refreshWidgets={handleSubmit} />)}
+      {/* {showDeleteForm && (<DeleteWidget refreshWidgets={handleSubmit} />)} */}
 
 
-      <Widgets widgets={widgets} />
+      <Widgets widgets={widgets} refreshWidgets={handleSubmit} />
 
       
     </div>

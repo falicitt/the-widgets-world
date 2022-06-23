@@ -23,10 +23,10 @@ router.post('/', (req,res) =>{
   .catch(err => res.status(500).json({err:err.message}))
 })
 
-router.delete('/:name', (req, res) => {
-  const name = req.params.name
+router.delete('/:id', (req, res) => {
+  const id = req.params.id
 
-  db.deleteWidget(name)
+  db.deleteWidget(id)
   .then((number)=> {
     console.log('widget deleted', number)
     res.json('widget has been deleted')})

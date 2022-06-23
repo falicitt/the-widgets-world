@@ -15,10 +15,10 @@ export function addWidget(widget) {
     .then((res) => res.body)
 }
 
-export function deleteWidget(name) {
+export function deleteWidget(id) {
   return request
-  .delete(`${widgetUrl}${name}`)
-  .send(name)
+  .delete(`${widgetUrl}${id}`)
+  .send(id)
   .then((res)=>console.log('api delete', res.body))
 }
 
