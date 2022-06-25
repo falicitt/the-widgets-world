@@ -15,6 +15,7 @@ function App() {
       .then((widgetsArr)=> {
         // console.log(widgetsArr)
         setWidgets(widgetsArr)
+        setShowForm(!showForm)
       }) 
   }
 
@@ -22,6 +23,7 @@ function App() {
 
   const handleClick = () => {
     setShowForm(!showForm)
+    console.log(showForm)
   }
     
   return (
