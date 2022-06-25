@@ -13,25 +13,25 @@ router.get('/', (req, res) => {
     })
 })
 
-router.post('/', (req,res) =>{
+router.post('/', (req, res) => {
   const newWidget = req.body
   db.addWidget(newWidget)
-  .then((idArr) => {
-    newWidget.id = idArr[0]
-    res.json(newWidget)
-  })
-  .catch(err => res.status(500).json({err:err.message}))
+    .then((idArr) => {
+      newWidget.id = idArr[0]
+      res.json(newWidget)
+    })
+    .catch((err) => res.status(500).json({ err: err.message }))
 })
 
 router.delete('/:id', (req, res) => {
   const id = req.params.id
 
   db.deleteWidget(id)
-  .then((number)=> {
-    console.log('widget deleted', number)
-    res.json('widget has been deleted')})
-  .catch(err => res.status(500).json({err:err.message}))
-
+    .then((num) => {
+      // console.log('widget deleted', number)
+      res.json(`${num} widget has been deleted`)
+    })
+    .catch((err) => res.status(500).json({ err: err.message }))
 })
 
 router.patch('/:id', (req, res) => {
@@ -39,13 +39,11 @@ router.patch('/:id', (req, res) => {
   const id = req.params.id
 
   db.updateWidget(id, widgetDetails)
-  .then((numUpdated) => {
-    console.log('number updated', numUpdated)
-    res.json(widgetDetails)
-  })
-  .catch(err => res.status(500).json({err:err.message}))
-
+    .then(() => {
+      // console.log('number updated', numUpdated)
+      res.json(widgetDetails)
+    })
+    .catch((err) => res.status(500).json({ err: err.message }))
 })
-
 
 module.exports = router

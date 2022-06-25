@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 import { addWidget, getWidgets } from '../apiClient'
-// import Widgsets from './Widgets'
 
 function AddWidget(props) {
   

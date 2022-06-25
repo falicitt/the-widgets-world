@@ -1,18 +1,22 @@
-import React from "react"
-// import { Link } from 'react-dom'
+import React, { useState } from "react"
+
+import UpdateWidget from "./UpdateWidget"
 
 import { deleteWidget } from '../apiClient'
 
 function Widgets(props) {
 
-  const handleClick = (widgetId) => {
-    // evt.preventDefault()
-
+  //function to delete widget
+  const handleDelete = (widgetId) => {
     deleteWidget(widgetId)
     .then(()=> props.refreshWidgets())
-    // .then(()=> getWidgets())
     .catch(err=> console.log(err))
   }
+
+  //function to update widget
+  const [activeIndex, setActiveIndex] = useState(null)
+
+  const handleClick = (i)=>{ setActiveIndex(i) }
 
   return (
     <>
@@ -24,8 +28,11 @@ function Widgets(props) {
         <p>price: ${widget.price}</p>
         <p>mfg: {widget.mfg}</p>
         <p>number in stock: {widget.inStock}</p>
-        {/* <button onClick={() => deleteWidget(widget.id)}>Delete Widget</button> */}
-          <button onClick={() => handleClick( widget.id )}>Delete Widget</button>
+     
+        <button onClick={() => handleDelete(widget.id)}>Delete Widget</button>
+        <button onClick={() => handleClick(widget.id)}>Update Widget</button>
+        {activeIndex === widget.id ? <UpdateWidget id={widget.id} /> : ''}
+        
         </li>)}
        </ol>
     </>

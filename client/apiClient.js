@@ -17,14 +17,14 @@ export function addWidget(widget) {
 
 export function deleteWidget(id) {
   return request
-  .delete(`${widgetUrl}${id}`)
-  .send(id)
-  .then((res)=>console.log('api delete', res.body))
+    .delete(`${widgetUrl}${id}`)
+    .send(id)
+    .then((res) => console.log('api delete', res.body))
 }
 
 export function updateWidget(id, updatedWidget) {
   return request
-  .patch(`${widgetUrl}${id}`)
-  .send(updatedWidget)
-  .then((res) => res.body)
+    .patch(`${widgetUrl}/${id}`)
+    .send(updatedWidget)
+    .then((res) => res.body)
 }
