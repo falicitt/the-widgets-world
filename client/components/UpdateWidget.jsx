@@ -5,10 +5,10 @@ import { updateWidget, getWidgets } from '../apiClient'
 function UpdateWidget(props) {
 
   const [widget, setWidget] = useState({
-    name: '',
-    price: 0,
-    mfg: '',
-    inStock:0
+    name: props.name,
+    price: props.price,
+    mfg: props.mfg,
+    inStock:props.inStock
   })
 
   const handleChange = (evt) => {
@@ -30,16 +30,16 @@ function UpdateWidget(props) {
   return (
     <form onSubmit={handleSubmit(props.id)}>
         <label htmlFor='name'>Name:</label>
-        <input id='name' name='name' type='text' onChange={handleChange} />
+      <input id='name' name='name' type='text' value={widget.name} onChange={handleChange} />
 
         <label htmlFor='price'>Price:</label>
-        <input id='price' name='price' type='number' onChange={handleChange} />
+        <input id='price' name='price' type='number' value={widget.price} onChange={handleChange} />
 
         <label htmlFor='mfg'>Mfg:</label>
-        <input id='mfg' name='mfg' type='text' onChange={handleChange} />
+      <input id='mfg' name='mfg' type='text' value={widget.mfg} onChange={handleChange} />
 
         <label htmlFor='inStock'>Number In Stock:</label>
-        <input id='inStock' name='inStock' type='number' onChange={handleChange} />
+        <input id='inStock' name='inStock' type='number' value={widget.inStock} onChange={handleChange} />
 
         <input type="submit" value="Submit"/>
 

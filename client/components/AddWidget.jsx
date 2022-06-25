@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { addWidget, getWidgets } from '../apiClient'
+import { addWidget } from '../apiClient'
 
 function AddWidget(props) {
   
@@ -25,9 +25,9 @@ function AddWidget(props) {
     .then(() => {
       props.refreshWidgets()
     })
-    .then(() => {
-      getWidgets()
-    })
+    // .then(() => {
+    //   getWidgets()
+    // })
     .catch(err=> console.log(err))
   }
 
