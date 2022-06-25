@@ -5,8 +5,8 @@ import { deleteWidget } from '../apiClient'
 
 function Widgets(props) {
 
-  const handleClick = (evt) => {
-    evt.preventDefault()
+  const handleClick = (widgetId) => {
+    // evt.preventDefault()
 
     deleteWidget(widgetId)
     .then(()=> props.refreshWidgets())
@@ -25,7 +25,7 @@ function Widgets(props) {
         <p>mfg: {widget.mfg}</p>
         <p>number in stock: {widget.inStock}</p>
         {/* <button onClick={() => deleteWidget(widget.id)}>Delete Widget</button> */}
-        <button onClick={() => handleClick(widget.id)}>Delete Widget</button>
+          <button onClick={() => handleClick( widget.id )}>Delete Widget</button>
         </li>)}
        </ol>
     </>

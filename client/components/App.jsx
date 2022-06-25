@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react'
 import { getWidgets } from '../apiClient'
 import AddWidget from './AddWidget'
 import Widgets from './Widgets'
-import DeleteWidget from './deleteWidget'
+// import DeleteWidget from './deleteWidget'
  
 
 
