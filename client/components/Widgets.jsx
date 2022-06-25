@@ -29,6 +29,7 @@ function Widgets(props) {
         <p>price: ${widget.price}</p>
         <p>mfg: {widget.mfg}</p>
         <p>number in stock: {widget.inStock}</p>
+        <p>rating: {widget.rating}</p>
      
         <button onClick={() => handleDelete(widget.id)}>Delete Widget</button>
           
@@ -40,6 +41,7 @@ function Widgets(props) {
               price={widget.price}
               mfg={widget.mfg}
               inStock={widget.inStock}
+              rating={widget.rating}
             /> : ''}
         
         </li>)}

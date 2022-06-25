@@ -8,7 +8,8 @@ function UpdateWidget(props) {
     name: props.name,
     price: props.price,
     mfg: props.mfg,
-    inStock:props.inStock
+    inStock: props.inStock,
+    rating: props.rating
   })
 
   const handleChange = (evt) => {
@@ -39,7 +40,10 @@ function UpdateWidget(props) {
       <input id='mfg' name='mfg' type='text' value={widget.mfg} onChange={handleChange} />
 
         <label htmlFor='inStock'>Number In Stock:</label>
-        <input id='inStock' name='inStock' type='number' value={widget.inStock} onChange={handleChange} />
+      <input id='inStock' name='inStock' type='number' value={widget.inStock} onChange={handleChange} />
+      
+      <label htmlFor='rating'>Rating:</label>
+      <input id='rating' name='rating' type='text' value={widget.rating} onChange={handleChange} />
 
         <input type="submit" value="Submit"/>
 

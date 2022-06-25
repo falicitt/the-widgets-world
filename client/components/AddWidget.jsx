@@ -8,7 +8,8 @@ function AddWidget(props) {
     name: '',
     price: 0,
     mfg: '',
-    inStock:0
+    inStock: 0,
+    rating: 0
   })
 
   const handleChange = (evt) => {
@@ -48,6 +49,9 @@ function AddWidget(props) {
 
         <label htmlFor='inStock'>Number In Stock:</label>
         <input id='inStock' name='inStock' type='number' onChange={handleChange} />
+
+        <label htmlFor='rating'>Rating:</label>
+        <input id='rating' name='rating' type='number' onChange={handleChange} />
 
 
         <input type="submit" value="Submit"/>
